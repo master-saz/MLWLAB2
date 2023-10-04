@@ -1,0 +1,32 @@
+
+object_file:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <_start>:
+   0:	eb 17                	jmp    19 <ender>
+
+00000002 <starter>:
+   2:	31 c0                	xor    %eax,%eax
+   4:	31 db                	xor    %ebx,%ebx
+   6:	31 d2                	xor    %edx,%edx
+   8:	b0 04                	mov    $0x4,%al
+   a:	b3 01                	mov    $0x1,%bl
+   c:	59                   	pop    %ecx
+   d:	b2 07                	mov    $0x7,%dl
+   f:	cd 80                	int    $0x80
+  11:	31 c0                	xor    %eax,%eax
+  13:	b0 01                	mov    $0x1,%al
+  15:	31 db                	xor    %ebx,%ebx
+  17:	cd 80                	int    $0x80
+
+00000019 <ender>:
+  19:	e8 e4 ff ff ff       	call   2 <starter>
+  1e:	59                   	pop    %ecx
+  1f:	4f                   	dec    %edi
+  20:	20 4d 41             	and    %cl,0x41(%ebp)
+  23:	4d                   	dec    %ebp
+  24:	41                   	inc    %ecx
+  25:	5c                   	pop    %esp
+  26:	6e                   	outsb  %ds:(%esi),(%dx)
